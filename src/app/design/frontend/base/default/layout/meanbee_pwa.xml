@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="after_body_start">
+            <block name="serviceworker.register" type="meanbee_pwa/serviceworker_register" template="pwa/serviceworker/register.phtml"/>
+        </reference>
+    </default>
+
+    <serviceworker_index_js>
+        <remove name="root"/>
+
+        <block name="serviceworker.js" type="meanbee_pwa/serviceworker_js" template="pwa/serviceworker/serviceworker.js" output="toHtml"/>
+    </serviceworker_index_js>
+</layout>

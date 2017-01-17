@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_PWA>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Meanbee_PWA>
+    </modules>
+</config>

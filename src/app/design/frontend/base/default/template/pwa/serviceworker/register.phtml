@@ -1,0 +1,14 @@
+<?php /** @var Meanbee_PWA_Block_Serviceworker_Register $this */ ?>
+<?php if ($this->isEnabled()): ?>
+    <script type="text/javascript">
+        (function () {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                    .register('<?php echo $this->getServiceworkerJsUrl() ?>')
+                    .catch(function (err) {
+                        console.log('Service worker registration failed:', err);
+                    });
+            }
+        })();
+    </script>
+<?php endif; ?>

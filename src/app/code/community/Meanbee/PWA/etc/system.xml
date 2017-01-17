@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <web>
+            <groups>
+                <pwa translate="label" module="meanbee_pwa">
+                    <label>Progressive Web App Settings</label>
+                    <sort_order>250</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enable Progressive Web App Features</label>
+                            <comment><![CDATA[Enable supported Progressive Web App features, such as caching assets for faster page load times and allowing to view previously visited pages while offline.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <offline_cms_page translate="label comment">
+                            <label>Offline Notification Page</label>
+                            <comment><![CDATA[This CMS page will be shown to visitors when they are browsing offline and have reached a page they haven't been to before or tried an action that is not available offline, such as adding to cart.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </offline_cms_page>
+                        <offline_url_blacklist translate="label comment">
+                            <label>Offline URL Blacklist</label>
+                            <comment><![CDATA[List of URL paths, one per line. Any pages matching one of the entries here will not be cached and will be unavailable offline.]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>53</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </offline_url_blacklist>
+                    </fields>
+                </pwa>
+            </groups>
+        </web>
+    </sections>
+</config>

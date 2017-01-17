@@ -1,0 +1,80 @@
+version: "2"
+services:
+  web:
+    image: httpd:2.4
+    hostname: pwa-magento.docker
+    ports:
+    - 80
+    volumes_from:
+      - appdata
+    volumes:
+      - ./etc/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+    environment:
+      - VIRTUAL_HOST=pwa-magento.docker
+      - VIRTUAL_PORT=80
+      - HTTPS_METHOD=noredirect
+      - CERT_NAME=default
+    links:
+      - php
+
+  php:
+    image: meanbee/magento:5.6-fpm
+    hostname: php-pwa-magento.docker
+    ports:
+      - 9000
+    volumes_from:
+      - appdata
+    environment:
+      - MAGE_ROOT_DIR=/var/www/html
+      - ENABLE_SENDMAIL=true
+      - XDEBUG_CONFIG
+    links:
+      - db
+
+  cron:
+    image: meanbee/magento:5.6-cli
+    hostname: cron-pwa-magento.docker
+    command: /run-cron.sh
+    volumes_from:
+      - appdata
+    environment:
+      - MAGE_ROOT_DIR=/var/www/html
+      - ENABLE_SENDMAIL=true
+    links:
+      - db
+
+  tools:
+    image: meanbee/magento-tools
+    volumes_from:
+      - appdata
+    volumes:
+      - ~/.composer:/root/.composer
+    environment:
+      - MAGE_ROOT_DIR=/var/www/html
+      - COMPOSER_HOME=/root/.composer
+      - COMPOSER_ALLOW_SUPERUSER=1
+    links:
+      - db
+
+  db:
+    image: meanbee/magento-mysql
+    ports:
+      - 3306
+    volumes_from:
+      - dbdata
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_USER=magento
+      - MYSQL_PASSWORD=magento
+      - MYSQL_DATABASE=magento
+
+  appdata:
+    image: tianon/true
+    volumes:
+      - /var/www/html
+      - ./:/src
+
+  dbdata:
+    image: tianon/true
+    volumes:
+      - /var/lib/mysql

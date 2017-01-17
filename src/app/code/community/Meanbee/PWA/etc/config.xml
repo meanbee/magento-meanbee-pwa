@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Meanbee_PWA>
+            <version>1.0.0</version>
+        </Meanbee_PWA>
+    </modules>
+    <global>
+        <blocks>
+            <meanbee_pwa>
+                <class>Meanbee_PWA_Block</class>
+            </meanbee_pwa>
+        </blocks>
+        <helpers>
+            <meanbee_pwa>
+                <class>Meanbee_PWA_Helper</class>
+            </meanbee_pwa>
+        </helpers>
+        <resources>
+            <meanbee_pwa_setup>
+                <setup>
+                    <module>Meanbee_PWA</module>
+                </setup>
+            </meanbee_pwa_setup>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <serviceworker>
+                <use>standard</use>
+                <args>
+                    <module>Meanbee_PWA_Serviceworker</module>
+                    <frontName>serviceworker.js</frontName>
+                </args>
+            </serviceworker>
+        </routers>
+        <layout>
+            <updates>
+                <meanbee_pwa>
+                    <file>meanbee_pwa.xml</file>
+                </meanbee_pwa>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <web>
+            <pwa>
+                <enabled>1</enabled>
+                <offline_cms_page>offline</offline_cms_page>
+                <offline_url_blacklist><![CDATA[checkout/onepage
+onestepcheckout
+customer/account/login
+customer/account/create
+]]></offline_url_blacklist>
+            </pwa>
+        </web>
+    </default>
+</config>

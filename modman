@@ -1,0 +1,7 @@
+# Meanbee_PWA
+src/app/etc/modules/* app/etc/modules/
+
+src/app/code/community/Meanbee/* app/code/community/Meanbee/
+
+src/app/design/frontend/base/default/layout/meanbee_pwa.xml app/design/frontend/base/default/layout/meanbee_pwa.xml
+src/app/design/frontend/base/default/template/pwa app/design/frontend/base/default/template/pwa
