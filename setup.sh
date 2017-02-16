@@ -4,7 +4,7 @@ set -e # Exit on error
 
 if [ $(find $MAGE_ROOT_DIR -maxdepth 0 -type d -empty 2>/dev/null) ]; then
     # Install Magento
-    /n98-magerun.phar install                               \
+    php -dmemory_limit=1024M -f /n98-magerun.phar install   \
         --installationFolder=$MAGE_ROOT_DIR                 \
         --magentoVersionByName="magento-mirror-1.9.2.4"     \
         --installSampleData=no                              \
@@ -28,4 +28,3 @@ cd $MAGE_ROOT_DIR
 modman deploy src
 
 magerun sys:setup:run
-
