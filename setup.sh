@@ -28,4 +28,4 @@ cd $MAGE_ROOT_DIR
 modman deploy src
 
 magerun sys:setup:run
-
+magerun config:set dev/template/allow_symlink 1
