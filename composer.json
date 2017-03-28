@@ -1,0 +1,10 @@
+{
+  "name":"meanbee/magento-meanbee-pwa",
+  "type":"magento-module",
+  "license":"MIT",
+  "homepage":"https://github.com/meanbee/magento-meanbee-pwa",
+  "description":"Add Progressive Web App features to your Magento store.",
+  "require":{
+    "magento-hackathon/magento-composer-installer":"^3.0.0"
+  }
+}
